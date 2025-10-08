@@ -46,7 +46,7 @@ public class User {
     @OneToMany(mappedBy = "creator", cascade = CascadeType.ALL)
     private List<Ticket> createdTickets;
 
-    @OneToMany(mappedBy = "asignee", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "assignee", cascade = CascadeType.ALL)
     private List<Ticket> assignedTickets;
 
     @PrePersist
