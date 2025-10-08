@@ -74,7 +74,7 @@ export default function TicketsPage() {
   return (
     <div>
       <div className="mb-6 flex justify-between items-center">
-        <h1 className="text-3xl font-bold">My Tickets</h1>
+        <h1 className="text-3xl font-bold text-gray-900">My Tickets</h1>
         <button
           onClick={() => setIsModalOpen(true)}
           className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
@@ -91,7 +91,7 @@ export default function TicketsPage() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
-            className="w-full border rounded px-3 py-2"
+            className="w-full border rounded px-3 py-2 text-gray-900"
           />
         </div>
         <select

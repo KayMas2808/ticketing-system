@@ -170,7 +170,7 @@ export default function TicketDetailPage() {
       <div className="bg-white rounded-lg shadow-md p-6 mb-6">
         <div className="flex justify-between items-start mb-4">
           <div>
-            <h1 className="text-3xl font-bold mb-2">{ticket.subject}</h1>
+            <h1 className="text-3xl font-bold mb-2 text-gray-900">{ticket.subject}</h1>
             <p className="text-gray-600">Ticket #{ticket.id}</p>
           </div>
           <div className="flex gap-2">
@@ -194,7 +194,7 @@ export default function TicketDetailPage() {
         </div>
 
         <div className="border-t pt-4">
-          <h2 className="font-semibold mb-2">Description</h2>
+          <h2 className="font-semibold mb-2 text-gray-900">Description</h2>
           <p className="text-gray-700 whitespace-pre-wrap">{ticket.description}</p>
         </div>
 
@@ -202,26 +202,26 @@ export default function TicketDetailPage() {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <p className="text-sm text-gray-600">Created by</p>
-              <p className="font-medium">{ticket.creator.name}</p>
+              <p className="font-medium text-gray-900">{ticket.creator.name}</p>
             </div>
             <div>
               <p className="text-sm text-gray-600">Assigned to</p>
-              <p className="font-medium">{ticket.assignee?.name || 'Unassigned'}</p>
+              <p className="font-medium text-gray-900">{ticket.assignee?.name || 'Unassigned'}</p>
             </div>
             <div>
               <p className="text-sm text-gray-600">Created at</p>
-              <p className="font-medium">{new Date(ticket.createdAt).toLocaleString()}</p>
+              <p className="font-medium text-gray-900">{new Date(ticket.createdAt).toLocaleString()}</p>
             </div>
             <div>
               <p className="text-sm text-gray-600">Last updated</p>
-              <p className="font-medium">{new Date(ticket.updatedAt).toLocaleString()}</p>
+              <p className="font-medium text-gray-900">{new Date(ticket.updatedAt).toLocaleString()}</p>
             </div>
           </div>
         </div>
 
         {ticket.rating && (
           <div className="border-t pt-4 mt-4">
-            <h2 className="font-semibold mb-2">Rating</h2>
+            <h2 className="font-semibold mb-2 text-gray-900">Rating</h2>
             <div className="flex items-center gap-2">
               <span className="text-yellow-500">{'★'.repeat(ticket.rating)}{'☆'.repeat(5 - ticket.rating)}</span>
               <span className="text-gray-600">({ticket.rating}/5)</span>
@@ -260,12 +260,12 @@ export default function TicketDetailPage() {
 
       {canUpdateStatus && (
         <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-          <h2 className="text-xl font-bold mb-4">Update Status</h2>
+          <h2 className="text-xl font-bold mb-4 text-gray-900">Update Status</h2>
           <div className="flex gap-2">
             <select
               value={selectedStatus}
               onChange={(e) => setSelectedStatus(e.target.value)}
-              className="flex-1 border rounded px-3 py-2"
+              className="flex-1 border rounded px-3 py-2 text-gray-900"
             >
               <option value="OPEN">Open</option>
               <option value="IN_PROGRESS">In Progress</option>
@@ -283,7 +283,7 @@ export default function TicketDetailPage() {
       )}
 
       {canAssign && (
-        <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+        <div className="bg-white rounded-lg shadow-md p-6 mb-6 text-gray-900">
           <h2 className="text-xl font-bold mb-4">Assign Ticket</h2>
           <div className="flex gap-2">
             <select
@@ -309,12 +309,12 @@ export default function TicketDetailPage() {
       )}
 
       <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-        <h2 className="text-xl font-bold mb-4">Upload Attachment</h2>
+        <h2 className="text-xl font-bold mb-4 text-gray-900">Upload Attachment</h2>
         <form onSubmit={handleFileUpload} className="flex gap-2">
           <input
             type="file"
             onChange={(e) => setFile(e.target.files?.[0] || null)}
-            className="flex-1 border rounded px-3 py-2"
+            className="flex-1 border rounded px-3 py-2 text-gray-900"
           />
           <button
             type="submit"
@@ -327,7 +327,7 @@ export default function TicketDetailPage() {
       </div>
 
       {canRate && !ticket.rating && (
-        <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+        <div className="bg-white rounded-lg shadow-md p-6 mb-6 text-gray-900">
           <h2 className="text-xl font-bold mb-4">Rate This Ticket</h2>
           <form onSubmit={handleRating}>
             <div className="mb-4">
@@ -365,14 +365,14 @@ export default function TicketDetailPage() {
       )}
 
       <div className="bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-xl font-bold mb-4">Comments</h2>
+        <h2 className="text-xl font-bold mb-4 text-gray-900">Comments</h2>
         
         <form onSubmit={handleAddComment} className="mb-6">
           <textarea
             value={newComment}
             onChange={(e) => setNewComment(e.target.value)}
             placeholder="Add a comment..."
-            className="w-full border rounded px-3 py-2 mb-2"
+            className="w-full border rounded px-3 py-2 mb-2 text-gray-900"
             rows={3}
           />
           <button
@@ -390,7 +390,7 @@ export default function TicketDetailPage() {
             comments.map((comment: any) => (
               <div key={comment.id} className="border-l-4 border-blue-500 pl-4 py-2">
                 <div className="flex justify-between items-start mb-1">
-                  <span className="font-medium">{comment.user.name}</span>
+                  <span className="font-medium text-gray-900">{comment.user.name}</span>
                   <span className="text-sm text-gray-500">
                     {new Date(comment.createdAt).toLocaleString()}
                   </span>

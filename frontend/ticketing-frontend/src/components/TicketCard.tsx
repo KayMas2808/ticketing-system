@@ -36,9 +36,9 @@ const statusColors = {
 export default function TicketCard({ ticket }: TicketCardProps) {
   return (
     <Link href={`/tickets/${ticket.id}`}>
-      <div className="border rounded-lg p-4 hover:shadow-lg transition-shadow cursor-pointer">
+      <div className="border rounded-lg p-4 hover:shadow-lg transition-shadow cursor-pointer text-gray-900">
         <div className="flex justify-between items-start mb-2">
-          <h3 className="text-lg font-semibold">{ticket.subject}</h3>
+          <h3 className="text-lg font-semibold text-gray-900">{ticket.subject}</h3>
           <div className="flex gap-2">
             <span className={`px-2 py-1 rounded text-xs ${priorityColors[ticket.priority as keyof typeof priorityColors]}`}>
               {ticket.priority}

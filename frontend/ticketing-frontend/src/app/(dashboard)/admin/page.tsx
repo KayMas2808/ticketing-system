@@ -80,7 +80,7 @@ export default function AdminPage() {
   return (
     <div>
       <div className="mb-6 flex justify-between items-center">
-        <h1 className="text-3xl font-bold">User Management</h1>
+        <h1 className="text-3xl font-bold text-gray-900">User Management</h1>
         <button
           onClick={() => setIsModalOpen(true)}
           className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
@@ -102,13 +102,13 @@ export default function AdminPage() {
           <tbody className="bg-white divide-y divide-gray-200">
             {users.map((u: any) => (
               <tr key={u.id}>
-                <td className="px-6 py-4 whitespace-nowrap">{u.name}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{u.email}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-gray-900">{u.name}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-gray-900">{u.email}</td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <select
                     value={u.role}
                     onChange={(e) => handleUpdateRole(u.id, e.target.value)}
-                    className="border rounded px-2 py-1"
+                    className="border rounded px-2 py-1 text-gray-900"
                     disabled={u.id === user?.id}
                   >
                     <option value="USER">User</option>
