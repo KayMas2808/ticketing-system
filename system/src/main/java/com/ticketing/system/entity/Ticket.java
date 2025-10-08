@@ -49,8 +49,8 @@ public class Ticket {
     private User creator;
 
     @ManyToOne
-    @JoinColumn(name = "assignee_id")
-    private User assignee;
+    @JoinColumn(name = "asignee_id")
+    private User asignee;
 
     private LocalDateTime createdAt;
 

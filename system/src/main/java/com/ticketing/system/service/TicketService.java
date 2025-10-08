@@ -129,7 +129,7 @@ public class TicketService {
             throw new UnauthorizedException("Can only assign to support agents or admins");
         }
 
-        ticket.setAssignee(assignee);
+        ticket.setAsignee(assignee);
         ticket = ticketRepository.save(ticket);
 
         return convertToResponse(ticket);
@@ -195,7 +195,7 @@ public class TicketService {
                         return true;
                     } else if (currentUser.getRole() == Role.SUPPORT_AGENT) {
                         return ticket.getCreator().getId().equals(currentUser.getId())
-                                || (ticket.getAssignee() != null && ticket.getAssignee().getId().equals(currentUser.getId()));
+                                || (ticket.getAsignee() != null && ticket.getAsignee().getId().equals(currentUser.getId()));
                     } else {
                         return ticket.getCreator().getId().equals(currentUser.getId());
                     }
@@ -214,7 +214,7 @@ public class TicketService {
                         return true;
                     } else if (currentUser.getRole() == Role.SUPPORT_AGENT) {
                         return ticket.getCreator().getId().equals(currentUser.getId())
-                                || (ticket.getAssignee() != null && ticket.getAssignee().getId().equals(currentUser.getId()));
+                                || (ticket.getAsignee() != null && ticket.getAsignee().getId().equals(currentUser.getId()));
                     } else {
                         return ticket.getCreator().getId().equals(currentUser.getId());
                     }
@@ -233,7 +233,7 @@ public class TicketService {
                         return true;
                     } else if (currentUser.getRole() == Role.SUPPORT_AGENT) {
                         return ticket.getCreator().getId().equals(currentUser.getId())
-                                || (ticket.getAssignee() != null && ticket.getAssignee().getId().equals(currentUser.getId()));
+                                || (ticket.getAsignee() != null && ticket.getAsignee().getId().equals(currentUser.getId()));
                     } else {
                         return ticket.getCreator().getId().equals(currentUser.getId());
                     }
@@ -249,7 +249,7 @@ public class TicketService {
 
         if (user.getRole() == Role.SUPPORT_AGENT) {
             if (ticket.getCreator().getId().equals(user.getId())
-                    || (ticket.getAssignee() != null && ticket.getAssignee().getId().equals(user.getId()))) {
+                    || (ticket.getAsignee() != null && ticket.getAsignee().getId().equals(user.getId()))) {
                 return;
             }
         }
@@ -269,8 +269,8 @@ public class TicketService {
         response.setPriority(ticket.getPriority());
         response.setStatus(ticket.getStatus());
         response.setCreator(convertToUserResponse(ticket.getCreator()));
-        if (ticket.getAssignee() != null) {
-            response.setAssignee(convertToUserResponse(ticket.getAssignee()));
+        if (ticket.getAsignee() != null) {
+            response.setAssignee(convertToUserResponse(ticket.getAsignee()));
         }
         response.setCreatedAt(ticket.getCreatedAt());
         response.setUpdatedAt(ticket.getUpdatedAt());
